@@ -144,14 +144,11 @@ app.get('/devis', async (req, res) => {
     const data = await getAirtableRecord(table, recordId);
     if (data) {
       console.log('Data successfully retrieved:', data.length);
-      // broadcastLog(`Data successfully retrieved: ${data.length} records`);
     } else {
       console.log('Failed to retrieve data.');
-      // broadcastLog('Failed to retrieve data.');
     }
 
     let newTitle = `DEVIS FSH ${data["id"]} `
-    // if(data["du"] && data["au"]) { newTitle+= `${ymd(data["du"])}-${data["au"] && ymd(data["au"])}`}
     
     // Generate and send the report
     await generateAndSendReport(
